@@ -1,7 +1,19 @@
 /static StaticR Static getStatic
-/auth   AuthR   Auth   getAuth
+/auth   AuthR   Auth   getAuth -- Define /login, /logout
 
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
 / HomeR GET POST
+
+/teachers TeachersR GET POST
+/teachers/#TeacherId TeacherR GET PUT DELETE
+/teachers/new/new NewTeacherR GET
+/teachers/#TeacherId/edit EditTeacherR GET
+
+/reviews ReviewsR GET POST
+/reviews/#ReviewId ReviewR PUT DELETE
+/reviews/#ReviewId/edit EditReviewR GET
+
+/reported ReportedReviewsR GET
+/reported/#ReviewId ReportedReviewR POST PUT
