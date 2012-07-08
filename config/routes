@@ -8,7 +8,7 @@
 
 /teachers TeachersR GET POST
 /teachers/#TeacherId TeacherR GET PUT DELETE
-/teachers/new/new NewTeacherR GET
+/teachers/!new NewTeacherR GET
 /teachers/#TeacherId/edit EditTeacherR GET
 
 /reviews ReviewsR GET POST

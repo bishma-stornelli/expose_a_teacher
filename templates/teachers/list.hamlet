@@ -1,1 +1,12 @@
-
+$if null teachers
+  <p>_{MsgNoTeachers}
+$else
+  <table>
+    <tr>
+        <th>Name
+        <th>Biography
+  
+    $forall Entity teacherId teacher <- teachers
+      <tr>
+        <td><a href=@{TeacherR teacherId}>#{teacherName teacher}
+        <td>#{teacherBiography teacher}

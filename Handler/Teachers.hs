@@ -5,7 +5,6 @@ import Import
 
 getTeachersR :: Handler RepHtml
 getTeachersR = do
-    let handlerName = "getTeachersR" :: Text
     teachers <- runDB $ selectList [] [Asc TeacherId]
     defaultLayout $ do
         aDomId <- lift newIdent
@@ -38,11 +37,7 @@ putTeacherR teacherId = do
 
 deleteTeacherR :: TeacherId -> Handler RepHtml
 deleteTeacherR teacherId = do
-    let handlerName = "deleteTeacherR" :: Text
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "teachers/list")
+    redirect TeachersR
 
 getNewTeacherR :: Handler RepHtml
 getNewTeacherR = do
