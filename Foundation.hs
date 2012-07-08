@@ -106,6 +106,25 @@ instance Yesod App where
 
     -- The page to be redirected to when authentication is required.
     authRoute _ = Just $ AuthR LoginR
+    
+    -- Authorization
+    
+    
+    isAuthorized TeachersR True = isLoggedIn
+            
+    isAuthorized (TeacherR _) True = isAdmin
+    isAuthorized NewTeacherR _ = isAdmin
+    isAuthorized (EditTeacherR _) _ = isAdmin
+    
+    isAuthorized ReviewsR _ = isLoggedIn
+    isAuthorized (ReviewR reviewId) True = isLoggedIn -- Falta verificar que el usuario sea el creador
+    isAuthorized (EditReviewR reviewId) _ = isLoggedIn
+    
+    isAuthorized ReportedReviewsR _ = isAdmin
+    isAuthorized (ReportReviewR _) _ = isLoggedIn
+    isAuthorized (BlockReviewR _) _ = isAdmin
+    isAuthorized _ _ = return Authorized 
+    
 
     messageLogger y loc level msg =
       formatLogText (getLogger y) loc level msg >>= logMsg (getLogger y)
@@ -118,6 +137,22 @@ instance Yesod App where
 
     -- Place Javascript at bottom of the body tag so the rest of the page loads first
     jsLoader _ = BottomOfBody
+
+-- Authorization
+isLoggedIn :: GHandler s App AuthResult
+isLoggedIn = do
+    mauth <- maybeAuth
+    case mauth of
+        Just _ -> return Authorized
+        Nothing -> return AuthenticationRequired
+
+isAdmin :: GHandler s App AuthResult
+isAdmin = do
+    mu <- maybeAuthId
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+--        Just "admin" -> Authorized
+        Just _ -> Unauthorized "You must be an admin"
 
 -- How to run database actions.
 instance YesodPersist App where

@@ -51,16 +51,16 @@ getReportedReviewsR = do
         setTitle "Welcome To Yesod!"
         $(widgetFile "reviews/reported")
         
-postReportedReviewR :: ReviewId -> Handler RepHtml
-postReportedReviewR reviewId = do
+postReportReviewR :: ReviewId -> Handler RepHtml
+postReportReviewR reviewId = do
     let handlerName = "postReportedReviewR" :: Text
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "teachers/show")
         
-putReportedReviewR :: ReviewId -> Handler RepHtml
-putReportedReviewR reviewId = do
+postBlockReviewR :: ReviewId -> Handler RepHtml
+postBlockReviewR reviewId = do
     let handlerName = "putReportedReviewR" :: Text
     defaultLayout $ do
         aDomId <- lift newIdent

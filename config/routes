@@ -16,4 +16,5 @@
 /reviews/#ReviewId/edit EditReviewR GET
 
 /reported ReportedReviewsR GET
-/reported/#ReviewId ReportedReviewR POST PUT
+/reported/#ReviewId ReportReviewR POST
+/reported/#ReviewId/block BlockReviewR POST

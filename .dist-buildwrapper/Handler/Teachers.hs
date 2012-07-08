@@ -6,6 +6,7 @@ import Import
 getTeachersR :: Handler RepHtml
 getTeachersR = do
     let handlerName = "getTeachersR" :: Text
+    teachers <- runDB $ selectList [] [Asc TeacherId]
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
