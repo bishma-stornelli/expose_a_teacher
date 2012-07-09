@@ -115,6 +115,7 @@ instance Yesod App where
     isAuthorized (TeacherR _) True = isAdmin
     isAuthorized NewTeacherR _ = isAdmin
     isAuthorized (EditTeacherR _) _ = isAdmin
+    isAuthorized (DeleteTeacherR _) _ = isAdmin
     
     isAuthorized ReviewsR _ = isLoggedIn
     isAuthorized (ReviewR reviewId) True = isLoggedIn -- Falta verificar que el usuario sea el creador
@@ -148,11 +149,12 @@ isLoggedIn = do
 
 isAdmin :: GHandler s App AuthResult
 isAdmin = do
-    mu <- maybeAuthId
+    mu <- maybeAuth
     return $ case mu of
         Nothing -> AuthenticationRequired
---        Just "admin" -> Authorized
+        Just (Entity _ (User _ _ True)) -> Authorized
         Just _ -> Unauthorized "You must be an admin"
+
 
 -- How to run database actions.
 instance YesodPersist App where
@@ -177,7 +179,7 @@ instance YesodAuth App where
         case x of
             Just (Entity uid _) -> return $ Just uid
             Nothing -> do
-                fmap Just $ insert $ User (credsIdent creds) Nothing
+                fmap Just $ insert $ User (credsIdent creds) Nothing False
 
     -- You can add other plugins like BrowserID, email or OAuth here
     authPlugins _ = [authBrowserId, authGoogleEmail]

@@ -1,3 +1,4 @@
-
-<li> The #{handlerName} handler is set to generate your site's home screen in Routes file #
-    <em>config/routes
+<div>Detalles del teacher
+<div>Si esta logeado: formulario para agregar review
+<div>Sino: link para logearse
+<div>Lista de reviews con links para editar, eliminar, denunciar, 

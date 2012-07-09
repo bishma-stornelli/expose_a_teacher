@@ -7,9 +7,10 @@
 / HomeR GET POST
 
 /teachers TeachersR GET POST
-/teachers/#TeacherId TeacherR GET PUT DELETE
+/teachers/#TeacherId TeacherR GET
 /teachers/!new NewTeacherR GET
-/teachers/#TeacherId/edit EditTeacherR GET
+/teachers/#TeacherId/edit EditTeacherR GET POST
+/teachers/#TeacherId/delete DeleteTeacherR POST
 
 /reviews ReviewsR GET POST
 /reviews/#ReviewId ReviewR PUT DELETE
@@ -18,3 +19,6 @@
 /reported ReportedReviewsR GET
 /reported/#ReviewId ReportReviewR POST
 /reported/#ReviewId/block BlockReviewR POST
+
+/users UsersR GET
+/users/#UserId UserR GET PUT DELETE

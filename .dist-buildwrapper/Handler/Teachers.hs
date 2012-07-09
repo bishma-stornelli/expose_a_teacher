@@ -12,7 +12,7 @@ getTeachersR = do
         $(widgetFile "teachers/list")
 
 getTeacherR :: TeacherId -> Handler RepHtml
-getTeacherR teacherId = do
+getTeacherR teacherId = do 
     let handlerName = "getTeacherR" :: Text
     defaultLayout $ do
         aDomId <- lift newIdent
@@ -27,16 +27,16 @@ postTeachersR = do
         setTitle "Welcome To Yesod!"
         $(widgetFile "teachers/new")
 
-putTeacherR :: TeacherId -> Handler RepHtml
-putTeacherR teacherId = do
+postEditTeacherR :: TeacherId -> Handler RepHtml
+postEditTeacherR teacherId = do
     let handlerName = "putTeacherR" :: Text
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "teachers/show")
 
-deleteTeacherR :: TeacherId -> Handler RepHtml
-deleteTeacherR teacherId = do
+postDeleteTeacherR :: TeacherId -> Handler RepHtml
+postDeleteTeacherR teacherId = do
     redirect TeachersR
 
 getNewTeacherR :: Handler RepHtml
@@ -54,3 +54,4 @@ getEditTeacherR teacherId = do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "teachers/edit")
+

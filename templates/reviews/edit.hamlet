@@ -1,1 +1,6 @@
+Muestra el formulario para editar un review.
 
+Idealmente, al hacer click en editar un review deberia volver la fila donde se muestra en el formulario para editarlo
+y al guardar deberia hacerlo por ajax.
+
+Al guardarlo deberia llevar a la pagina de detalle del teacher.

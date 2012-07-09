@@ -1,3 +1,3 @@
+Pagina de crear teacher
 
-<li> The #{handlerName} handler is set to generate your site's home screen in Routes file #
-    <em>config/routes
+Lleva el formulario y onsuccess debe redireccionar a show teacher

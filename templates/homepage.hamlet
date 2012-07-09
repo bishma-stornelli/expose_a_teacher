@@ -1,3 +1,27 @@
+<a href=@{NewTeacherR}>_{MsgNewTeacher}
+<a href=@{TeachersR}>_{MsgListTeachers}
+<a href=@{ReviewsR}>_{MsgListReviewedTeachers}
+<a href=@{ReportedReviewsR}>_{MsgListReportedReviews}
+<a href=@{NewTeacherR}>_{MsgProposeTeacher}
+<a href=@{UsersR}>_{MsgListUsers}
+<a href=@{AuthR LoginR}>_{MsgLogin}
+<a href=@{AuthR LogoutR}>_{MsgLogout}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>_{MsgHello}
 
 <ol>
