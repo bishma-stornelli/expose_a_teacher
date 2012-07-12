@@ -5,7 +5,8 @@ import Import
 
 getReviewsR :: Handler RepHtml
 getReviewsR = do
-    let handlerName = "getReviewsR" :: Text
+    (Entity userId user) <- requireAuth
+    reviews <- runDB $ selectList [ UserId ==. ( userId)] [] 
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"

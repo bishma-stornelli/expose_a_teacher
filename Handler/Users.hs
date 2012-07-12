@@ -10,8 +10,8 @@ getUsersR = do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "reviews/list")
-		
-		
+        
+        
 getUserR :: UserId -> Handler RepHtml
 getUserR userId = do
     let handlerName = "getReviewsR" :: Text
@@ -19,7 +19,7 @@ getUserR userId = do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "reviews/list")
-		
+        
 putUserR :: UserId ->Handler RepHtml
 putUserR userId = do
     let handlerName = "getReviewsR" :: Text
@@ -27,7 +27,7 @@ putUserR userId = do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "reviews/list")
-		
+        
 deleteUserR :: UserId ->Handler RepHtml
 deleteUserR userId = do
     let handlerName = "getReviewsR" :: Text

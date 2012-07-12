@@ -12,22 +12,38 @@
         <meta name="author" content="">
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    
         ^{pageHead pc}
 
         \<!--[if lt IE 9]>
         \<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         \<![endif]-->
-
+        <!-- <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
+         <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+        -->
         <script>
           document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
     <body>
-        <div class="container">
-            <header>
+        <div id="spotlight">
+        <div id="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="http://www.yesodweb.com/book">book
+            <div class="headergroup">
+                <div class="homepage-logo">
+                    <div class="logo-image">
+                    <div class="logo-text">Yesod Web Framework
+                <div class="homepage-info">
+                    Yesod is a Haskell web framework for productive development of type-safe, RESTful, high performance web applications.
+            <aside id="announcement">
+                <div class="tri-left">
+                <div class="tri-right">
+                <div class="msg">
+                    $maybe msg <- mmsg
+                        #{msg}
             <div id="main" role="main">
               ^{pageBody pc}
-            <footer>
-                #{extraCopyright $ appExtra $ settings master}
 
         $maybe analytics <- extraAnalytics $ appExtra $ settings master
             <script>

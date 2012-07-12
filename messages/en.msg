@@ -10,3 +10,4 @@ Login: Log in
 Logout: Log out
 EditTeacher: Edit
 DeleteTeacher: Delete
+AdminTitle: Admin Zone

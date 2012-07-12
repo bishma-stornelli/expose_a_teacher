@@ -2,7 +2,18 @@
 module Handler.Teachers where
  
 import Import
+import Yesod.Form.Nic (YesodNic, nicHtmlField)
 
+-- Forms
+
+teacherAForm :: AForm App App Teacher
+teacherAForm = Teacher
+    <$> areq textField "Name" Nothing
+    <*> areq nicHtmlField "Biography" Nothing
+    <*> areq textField "Status" Nothing
+-- COMO RAYOS PONGO UN CAMPO EN EL FORMULARIO DE TIPO UserId o cualquier otro foreignKey?
+    <*> aopt intField "Recommender"  Nothing
+            
 getTeachersR :: Handler RepHtml
 getTeachersR = do
     teachers <- runDB $ selectList [] [Asc TeacherId]
@@ -21,7 +32,7 @@ getTeacherR teacherId = do
 
 postTeachersR :: Handler RepHtml
 postTeachersR = do
-    let handlerName = "postTeacherR" :: Text
+--    ((result,widget), enctype) <- runFormPost $ teacherAForm Nothing Nothing
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
@@ -41,7 +52,8 @@ postDeleteTeacherR teacherId = do
 
 getNewTeacherR :: Handler RepHtml
 getNewTeacherR = do
-    let handlerName = "getNewTeacherR" :: Text
+    (Entity userId user) <- requireAuth
+    (widget, enctype) <- generateFormPost $ renderTable teacherAForm
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"

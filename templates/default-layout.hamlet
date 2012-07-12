@@ -1,3 +1,31 @@
-$maybe msg <- mmsg
-    <div #message>#{msg}
-^{widget}
+
+    
+<p class="what">Yesod is a Haskell web framework for productive development of type-safe, RESTful, high performance web applications.
+<section class="why">
+    ^{widget}
+
+<section class="getting-started">
+    <ul>
+        
+        <li>
+            <a href=@{TeachersR}>_{MsgListTeachers}
+        <li>
+            <a href=@{ReviewsR}>_{MsgListReviewedTeachers}        
+        <li>
+            <a href=@{NewTeacherR}>_{MsgProposeTeacher}
+        <li>
+            <a href=@{AuthR LoginR}>_{MsgLogin}
+        <li>
+            <a href=@{AuthR LogoutR}>_{MsgLogout}
+    <h2>_{MsgAdminTitle}
+    <ul>
+        <li>
+            <a href=@{NewTeacherR}>_{MsgNewTeacher}
+        <li>
+            <a href=@{UsersR}>_{MsgListUsers}
+        <li>
+            <a href=@{ReportedReviewsR}>_{MsgListReportedReviews}
+
+
+
+
