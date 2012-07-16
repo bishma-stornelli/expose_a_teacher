@@ -21,8 +21,6 @@ Review
 Teacher
     name Text
     biography Html
-    status Text default="Hidden"
-    recommender UserId Maybe
     deriving
  
 ReportedReviews

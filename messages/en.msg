@@ -11,3 +11,4 @@ Logout: Log out
 EditTeacher: Edit
 DeleteTeacher: Delete
 AdminTitle: Admin Zone
+TeacherCreated: The teacher was been successfully created

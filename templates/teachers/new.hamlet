@@ -2,6 +2,7 @@ Pagina de crear teacher
 
 Lleva el formulario y onsuccess debe redireccionar a show teacher
 
-<form method=post action=@{TeachersR} >
-
+<form method=post action=@{TeachersR} enctype=#{enctype}>
+    <table>
+        ^{widget}
     <input type=submit>

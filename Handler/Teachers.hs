@@ -10,9 +10,6 @@ teacherAForm :: AForm App App Teacher
 teacherAForm = Teacher
     <$> areq textField "Name" Nothing
     <*> areq nicHtmlField "Biography" Nothing
-    <*> areq textField "Status" Nothing
--- COMO RAYOS PONGO UN CAMPO EN EL FORMULARIO DE TIPO UserId o cualquier otro foreignKey?
-    <*> aopt intField "Recommender"  Nothing
             
 getTeachersR :: Handler RepHtml
 getTeachersR = do
@@ -30,13 +27,21 @@ getTeacherR teacherId = do
         setTitle "Welcome To Yesod!"
         $(widgetFile "teachers/show")
 
+-- Procesa el formulario para crear un profesor
 postTeachersR :: Handler RepHtml
 postTeachersR = do
---    ((result,widget), enctype) <- runFormPost $ teacherAForm Nothing Nothing
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "teachers/new")
+    (Entity userId user) <- requireAuth
+    ((result,widget), enctype) <- runFormPost $ renderTable teacherAForm
+    case result of
+        FormSuccess teacher -> do
+            tid <- runDB $ insert teacher
+            setMessageI MsgTeacherCreated
+            redirect $ TeacherR tid
+        _ -> defaultLayout $ do
+                aDomId <- lift newIdent
+                setTitle "Welcome To Yesod!"
+                $(widgetFile "teachers/new")
+    
 
 postEditTeacherR :: TeacherId -> Handler RepHtml
 postEditTeacherR teacherId = do
@@ -50,6 +55,7 @@ postDeleteTeacherR :: TeacherId -> Handler RepHtml
 postDeleteTeacherR teacherId = do
     redirect TeachersR
 
+-- Renderiza un formulario para crear un profesor
 getNewTeacherR :: Handler RepHtml
 getNewTeacherR = do
     (Entity userId user) <- requireAuth
