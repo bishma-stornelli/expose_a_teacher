@@ -126,6 +126,7 @@ instance Yesod App where
     isAuthorized (ReportReviewR _) _ = isLoggedIn
     isAuthorized (BlockReviewR _) _ = isAdmin
     isAuthorized _ _ = return Authorized 
+    isAuthorized (UserR _) True = isAdmin
     
 
     messageLogger y loc level msg =

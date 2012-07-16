@@ -1,4 +1,8 @@
-<div>Detalles del teacher
+<div>
+    <h2>Name
+    <p>#{teacherName teacher}
+    <h2>Biography
+    <p>#{teacherBiography teacher}
 <div>Si esta logeado: formulario para agregar review
 <div>Sino: link para logearse
 <div>Lista de reviews con links para editar, eliminar, denunciar, 

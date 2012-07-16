@@ -18,7 +18,8 @@ postReviewsR = do
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
-        $(widgetFile "teachers/show")
+        -- $(widgetFile "teachers/show")
+        $(widgetFile "homepage")
         
 putReviewR :: ReviewId -> Handler RepHtml
 putReviewR reviewId = do
@@ -34,7 +35,8 @@ deleteReviewR  reviewId = do
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
-        $(widgetFile "teachers/show")
+        -- $(widgetFile "teachers/show")
+        $(widgetFile "homepage")
         
 getEditReviewR :: ReviewId -> Handler RepHtml
 getEditReviewR reviewId = do
@@ -58,7 +60,8 @@ postReportReviewR reviewId = do
     defaultLayout $ do
         aDomId <- lift newIdent
         setTitle "Welcome To Yesod!"
-        $(widgetFile "teachers/show")
+        -- $(widgetFile "teachers/show")
+        $(widgetFile "homepage")
         
 postBlockReviewR :: ReviewId -> Handler RepHtml
 postBlockReviewR reviewId = do

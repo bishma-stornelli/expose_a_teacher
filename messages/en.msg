@@ -11,5 +11,9 @@ Logout: Log out
 EditTeacher: Edit
 DeleteTeacher: Delete
 AdminTitle: Admin Zone
-TeacherCreated: The teacher was been successfully created
+TeacherCreated: The teacher was successfully created
 CreateTeacher: Create a teacher
+UserBlocked: The user has been blocked
+TeacherDeleted: The teacher was deleted
+TeacherUpdated: The teacher was successfully updated
+ShowTeacher: Teacher details 

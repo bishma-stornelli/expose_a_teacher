@@ -20,18 +20,8 @@ getUserR userId = do
         setTitle "Welcome To Yesod!"
         $(widgetFile "reviews/list")
         
-putUserR :: UserId ->Handler RepHtml
-putUserR userId = do
-    let handlerName = "getReviewsR" :: Text
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "reviews/list")
-        
-deleteUserR :: UserId ->Handler RepHtml
-deleteUserR userId = do
-    let handlerName = "getReviewsR" :: Text
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "reviews/list")
+postUserR :: UserId -> Handler RepHtml
+postUserR userId = do
+    runDB $ delete userId
+    setMessageI MsgUserBlocked
+    redirect UsersR

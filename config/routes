@@ -21,4 +21,4 @@
 /reported/#ReviewId/block BlockReviewR POST
 
 /users UsersR GET
-/users/#UserId UserR GET PUT DELETE
+/users/#UserId UserR GET POST

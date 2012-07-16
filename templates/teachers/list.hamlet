@@ -15,7 +15,7 @@ $else
         <td><a href=@{TeacherR teacherId}>#{teacherName teacher}
         <td>#{teacherBiography teacher}
         $maybe Entity _ user <- muser
-          $if userAdmin user
+          -- $if userAdmin user
             <td><a href=@{EditTeacherR teacherId}>_{MsgEditTeacher}
             <td>
                 <form action=@{DeleteTeacherR teacherId} method="POST">

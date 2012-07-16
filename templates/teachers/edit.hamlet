@@ -1,2 +1,5 @@
-<p>Pagina para editar teacher
-<p>On success lleva a show teacher
+<h1>_{MsgEditTeacher}
+<form method=post action=@{EditTeacherR teacherId} enctype=#{enctype}>
+    <table>
+        ^{widget}
+    <input type=submit value=_{MsgEditTeacher}>
