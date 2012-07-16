@@ -156,7 +156,6 @@ isAdmin = do
         Just (Entity _ (User _ _ False)) -> Authorized
         Just _ -> Unauthorized "You must be an admin"
 
-
 -- How to run database actions.
 instance YesodPersist App where
     type YesodPersistBackend App = SqlPersist

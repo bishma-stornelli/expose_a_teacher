@@ -13,10 +13,11 @@ teacherAForm = Teacher
             
 getTeachersR :: Handler RepHtml
 getTeachersR = do
+    muser <- maybeAuth
     teachers <- runDB $ selectList [] [Asc TeacherId]
     defaultLayout $ do
         aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
+        setTitleI MsgListTeachers
         $(widgetFile "teachers/list")
 
 getTeacherR :: TeacherId -> Handler RepHtml
@@ -39,7 +40,7 @@ postTeachersR = do
             redirect $ TeacherR tid
         _ -> defaultLayout $ do
                 aDomId <- lift newIdent
-                setTitle "Welcome To Yesod!"
+                setTitleI MsgCreateTeacher
                 $(widgetFile "teachers/new")
     
 
@@ -62,7 +63,7 @@ getNewTeacherR = do
     (widget, enctype) <- generateFormPost $ renderTable teacherAForm
     defaultLayout $ do
         aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
+        setTitleI MsgCreateTeacher
         $(widgetFile "teachers/new")
 
 getEditTeacherR :: TeacherId -> Handler RepHtml

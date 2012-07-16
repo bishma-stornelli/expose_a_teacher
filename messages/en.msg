@@ -12,3 +12,4 @@ EditTeacher: Edit
 DeleteTeacher: Delete
 AdminTitle: Admin Zone
 TeacherCreated: The teacher was been successfully created
+CreateTeacher: Create a teacher

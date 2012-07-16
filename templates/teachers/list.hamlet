@@ -5,14 +5,18 @@ $else
     <tr>
         <th>Name
         <th>Biography
-        <th>Si es 
-        <th>admin
+        $maybe Entity _ user <- muser
+          $if userAdmin user
+            <th>
+            <th>
   
     $forall Entity teacherId teacher <- teachers
       <tr>
         <td><a href=@{TeacherR teacherId}>#{teacherName teacher}
         <td>#{teacherBiography teacher}
-        <td><a href=@{EditTeacherR teacherId}>_{MsgEditTeacher}
-        <td>
-            <form action=@{DeleteTeacherR teacherId} method="POST">
-                <input type=submit value=_{MsgDeleteTeacher}>
+        $maybe Entity _ user <- muser
+          $if userAdmin user
+            <td><a href=@{EditTeacherR teacherId}>_{MsgEditTeacher}
+            <td>
+                <form action=@{DeleteTeacherR teacherId} method="POST">
+                    <input type=submit value=_{MsgDeleteTeacher}>
